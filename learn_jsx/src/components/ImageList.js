@@ -1,8 +1,13 @@
-
+import ImageShow from "./ImageShow"
 
 const ImageList = ({ImageList}) => {
+  
+  const renderedImages = ImageList.map(image=><ImageShow image={image}/>) ;
+  
   return (
-    <div>ImageList has {ImageList.length} records</div>
+
+    <div>{renderedImages}</div>
+    
   )
 }
 
