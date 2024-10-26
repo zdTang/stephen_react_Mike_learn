@@ -20,7 +20,9 @@ export default function BookShow({book,deleteBookById,editTitle}) {
   
   return (
     <div className="book-show">
-      
+      <img
+      alt="books"
+      src={`https://picsum.photos/seed/${book.id}/300/200`}/>
       {showEdit?<BookEdit book={book}  handleSubmit={handleSubmit}/>:book.title}
       <div className="actions">
         <button className="edit" onClick={handleEditClick}>
