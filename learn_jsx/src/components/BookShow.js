@@ -12,15 +12,16 @@ export default function BookShow({book,deleteBookById,editTitle}) {
     setShowEdit(!showEdit);
   }
 
-  const closeForm = ()=>{
+  const handleSubmit = (id,title)=>{
     setShowEdit(false);
+    editTitle(id,title);
   }
 
   
   return (
     <div className="book-show">
       
-      {showEdit?<BookEdit book={book} editTitle={editTitle} closeForm={closeForm}/>:book.title}
+      {showEdit?<BookEdit book={book}  handleSubmit={handleSubmit}/>:book.title}
       <div className="actions">
         <button className="edit" onClick={handleEditClick}>
           Edit
