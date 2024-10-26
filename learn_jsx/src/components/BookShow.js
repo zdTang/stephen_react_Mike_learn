@@ -1,5 +1,5 @@
-export default function BookShow() {
+export default function BookShow({book}) {
   return (
-    <div>BookShow</div>
+    <div className="book-show">{book.title}</div>
   )
 }
