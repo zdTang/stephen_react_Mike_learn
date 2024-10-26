@@ -14,6 +14,11 @@ function App() {
     console.log(uniqueString);
   }
 
+  const deleteBookById = id =>{
+    var afterDeletedBookById = books.filter(book=>book.id !== id);
+    setBooks(afterDeletedBookById);
+  }
+
   function generateUniqueString(length = 10) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
@@ -29,7 +34,7 @@ function App() {
   
   return (
     <div className="app">
-      <BookList books={books}/>
+      <BookList books={books} deleteBookById={deleteBookById}/>
       <BookCreate onCreate={createBook}/>
     </div>
   );
