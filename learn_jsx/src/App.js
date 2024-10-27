@@ -5,6 +5,15 @@ import axios from 'axios';
 function App() {
 
   const [books,setBooks] = useState([]);
+
+  const fetchBooks = async ()=>{
+    const response = await axios.get('http://localhost:3001/books');
+    setBooks(response.data);
+  }
+
+  // When to call fetchBooks ????
+  // Don't do this:
+  // fetchBooks();   // infinit loop
   const createBook = async (title)=>{
     //Bad Code Example!
     // books.push({id:123,title:title});
