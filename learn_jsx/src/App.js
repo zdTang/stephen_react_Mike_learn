@@ -1,18 +1,30 @@
 import { useState } from "react";
 import BookCreate from "./components/BookCreate";
 import BookList  from "./components/BookList";
+import axios from 'axios';
 function App() {
 
   const [books,setBooks] = useState([]);
-  const createBook = (title)=>{
+  const createBook = async (title)=>{
     //Bad Code Example!
     // books.push({id:123,title:title});
     // setBooks(books);
-    const uniqueString = generateUniqueString(10);
-    const updatedBooks = [...books,{id:uniqueString,title}];
+    // const uniqueString = generateUniqueString(10);
+    // const updatedBooks = [...books,{id:uniqueString,title}];
+    // setBooks(updatedBooks);
+    // console.log(uniqueString);
+    const response = await axios.post('http://localhost:3001/books',{
+      title
+    })
+    //console.log(response);
+    const updatedBooks = [
+      ...books,
+      response.data
+    ];
     setBooks(updatedBooks);
-    console.log(uniqueString);
   }
+
+  
   const editBookById = (id,newTitle)=>{
     const updatedBooks = books.map(book=>{
       if(book.id===id){
