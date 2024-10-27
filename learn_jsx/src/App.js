@@ -37,20 +37,25 @@ function App() {
 
   
   const editBookById = async (id,newTitle)=>{
-    // const updatedBooks = books.map(book=>{
-    //   if(book.id===id){
-    //     return {...book,title:newTitle}
-    //   }
-    //   return book;
-    // })
-    await axios.put(`http://localhost:3001/books/${id}`,{
+
+    const response = await axios.put(`http://localhost:3001/books/${id}`,{
       "title":newTitle
-    })
+    });
+    
+    // Update local books with update it locally
+    // other option will load ghe new books from database, which is better?
+    const updatedBooks = books.map(book=>{
+      if(book.id===id){
+        return {...book,...response.data}
+      }
+      return book;
+    });
 
-    const response = await axios.get('http://localhost:3001/books');
+    setBooks(updatedBooks);
+};
 
-    setBooks(response.data);
-  }
+
+
   const deleteBookById = id =>{
     var afterDeletedBookById = books.filter(book=>book.id !== id);
     setBooks(afterDeletedBookById);
