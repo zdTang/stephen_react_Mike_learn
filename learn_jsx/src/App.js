@@ -11,13 +11,24 @@ const App = () => {
         </Button>
       </div>
       <div>
-        <Button>Holy Smoke!</Button>
+        <Button success outline rounded>
+          Holy Smoke!
+        </Button>
       </div>
       <div>
-        <Button>Trump 2024</Button>
+        <Button secondary rounder>
+          Trump 2024
+        </Button>
       </div>
       <div>
-        <Button>Learn stuff</Button>
+        <Button warning outline>
+          Learn stuff
+        </Button>
+      </div>
+      <div>
+        <Button danger outline>
+          Learn stuff
+        </Button>
       </div>
     </div>
   );
