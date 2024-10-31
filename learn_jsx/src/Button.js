@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import className from "classnames";
+import { FaBeer } from "react-icons/fa";
 function Button({
   children,
   primary,
@@ -25,7 +26,12 @@ function Button({
     "text-red-500": outline && danger,
   });
 
-  return <button className={classes}>{children}</button>;
+  return (
+    <button className={classes}>
+      {children}
+      <FaBeer />
+    </button>
+  );
 }
 
 Button.propTypes = {
