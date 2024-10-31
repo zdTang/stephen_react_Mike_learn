@@ -9,7 +9,12 @@ function Button({
   outline,
   rounded,
 }) {
-  return <button className="bg-rose-300">{children}</button>;
+  if (primary)
+    return (
+      <button className="bg-rose-300 px-3 py-1.5 border border-blue-500 bg-blue-500 text-white">
+        {children}
+      </button>
+    );
 }
 
 Button.propTypes = {
