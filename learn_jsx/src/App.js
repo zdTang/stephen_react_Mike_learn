@@ -3,10 +3,12 @@ const App = () => {
   return (
     <div>
       <div>
-        <Button>Hello</Button>
+        <Button primary>Hello</Button>
       </div>
       <div>
-        <Button>Big Deal!</Button>
+        <Button primary rounded>
+          Big Deal!
+        </Button>
       </div>
       <div>
         <Button>Holy Smoke!</Button>
