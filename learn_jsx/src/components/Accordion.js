@@ -9,10 +9,14 @@ const Accordion = ({ items }) => {
 
   const renderedItems = items.map((item, index) => {
     const isExpended = expandedIndex === index;
+    const icon = <span>{isExpended ? "down" : "left"}</span>;
 
     return (
       <div key={item.id}>
-        <div onClick={() => handleClick(index)}>{item.label}</div>
+        <div onClick={() => handleClick(index)}>
+          {item.label}
+          {icon}
+        </div>
         {isExpended && (
           <div onClick={() => handleClick(-1)}>{item.content}</div>
         )}
