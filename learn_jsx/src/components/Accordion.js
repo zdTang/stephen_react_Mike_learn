@@ -1,4 +1,5 @@
-const Accordion = () => {
+const Accordion = ({ items }) => {
+  console.log(items);
   return <div>Accordion</div>;
 };
 
