@@ -4,34 +4,45 @@ const ButtonPage = () => {
     console.log("click");
   };
   return (
-    <div>
+    <div className="flex justify-center ">
       <div>
-        <Button primary className="mb-8" onClick={handleClick}>
+        <Button primary className="mb-5 mx-2" onClick={handleClick}>
           Hello
         </Button>
       </div>
       <div>
-        <Button primary rounded onMouseEnter={handleClick}>
+        <Button
+          primary
+          className="mb-5 mx-2"
+          rounded
+          onMouseEnter={handleClick}
+        >
           Big Deal!
         </Button>
       </div>
       <div>
-        <Button success outline rounded onMouseLeave={handleClick}>
+        <Button
+          success
+          className="mb-5 mx-2"
+          outline
+          rounded
+          onMouseLeave={handleClick}
+        >
           Holy Smoke!
         </Button>
       </div>
       <div>
-        <Button secondary rounded>
+        <Button className="mb-5 mx-2" secondary rounded>
           Trump 2024
         </Button>
       </div>
       <div>
-        <Button warning outline>
+        <Button className="mb-5 mx-2" warning outline>
           Learn stuff
         </Button>
       </div>
       <div>
-        <Button danger outline>
+        <Button className="mb-5 mx-2" danger outline>
           Learn stuff
         </Button>
       </div>

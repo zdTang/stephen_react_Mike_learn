@@ -1,4 +1,5 @@
 import ButtonPage from "./pages/ButtonPage";
+import Accordion from "./components/Accordion";
 const App = () => {
   const handleClick = () => {
     console.log("click");
@@ -6,6 +7,7 @@ const App = () => {
   return (
     <div>
       <ButtonPage />
+      <Accordion />
     </div>
   );
 };
