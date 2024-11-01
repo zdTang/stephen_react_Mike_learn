@@ -5,17 +5,17 @@ const App = () => {
     {
       id: "sdsdd",
       label: "how to do it?",
-      content: "hello",
+      content: "hello, you all!",
     },
     {
       id: "wewsfe",
       label: "how to do it?",
-      content: "hello",
+      content: "hello, you people!",
     },
     {
       id: "evxne",
       label: "how to do it?",
-      content: "hello",
+      content: "hello, you dumb!",
     },
   ];
 

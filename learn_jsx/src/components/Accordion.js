@@ -8,8 +8,10 @@ const Accordion = ({ items }) => {
 
     return (
       <div key={item.id}>
-        <div>{item.label}</div>
-        {isExpended && <div>{item.content}</div>}
+        <div onClick={() => setExpandedIndex(index)}>{item.label}</div>
+        {isExpended && (
+          <div onClick={() => setExpandedIndex(-1)}>{item.content}</div>
+        )}
       </div>
     );
   });
