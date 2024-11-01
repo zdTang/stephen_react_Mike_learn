@@ -2,10 +2,14 @@ import { useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 const Accordion = ({ items }) => {
-  const [expandedIndex, setExpandedIndex] = useState(1);
+  const [expandedIndex, setExpandedIndex] = useState(-1);
 
   const handleClick = (index) => {
-    setExpandedIndex(index);
+    if (expandedIndex === index) {
+      setExpandedIndex(-1);
+    } else {
+      setExpandedIndex(index);
+    }
   };
 
   const renderedItems = items.map((item, index) => {
@@ -25,11 +29,7 @@ const Accordion = ({ items }) => {
           {item.label}
           {icon}
         </div>
-        {isExpended && (
-          <div className="border-b p-5" onClick={() => handleClick(-1)}>
-            {item.content}
-          </div>
-        )}
+        {isExpended && <div className="border-b p-5">{item.content}</div>}
       </div>
     );
   });
