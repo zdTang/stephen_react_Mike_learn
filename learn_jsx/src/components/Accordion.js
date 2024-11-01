@@ -1,11 +1,15 @@
-const Accordion = ({ items }) => {
-  console.log(items);
+import { useState } from "react";
 
-  const renderedItems = items.map((item) => {
+const Accordion = ({ items }) => {
+  const [expandedIndex, setExpandedIndex] = useState(1);
+
+  const renderedItems = items.map((item, index) => {
+    const isExpended = expandedIndex === index;
+
     return (
       <div key={item.id}>
         <div>{item.label}</div>
-        <div>{item.content}</div>
+        {isExpended && <div>{item.content}</div>}
       </div>
     );
   });
