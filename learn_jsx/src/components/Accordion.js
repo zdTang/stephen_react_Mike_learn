@@ -11,22 +11,29 @@ const Accordion = ({ items }) => {
   const renderedItems = items.map((item, index) => {
     const isExpended = expandedIndex === index;
     const icon = (
-      <span>{isExpended ? <GoChevronDown /> : <GoChevronLeft />}</span>
+      <span className="text-2xl">
+        {isExpended ? <GoChevronDown /> : <GoChevronLeft />}
+      </span>
     );
 
     return (
       <div key={item.id}>
-        <div onClick={() => handleClick(index)}>
+        <div
+          className="flex justify-between p-3 bg-gray-50 border-b items-center cursor-pointer"
+          onClick={() => handleClick(index)}
+        >
           {item.label}
           {icon}
         </div>
         {isExpended && (
-          <div onClick={() => handleClick(-1)}>{item.content}</div>
+          <div className="border-b p-5" onClick={() => handleClick(-1)}>
+            {item.content}
+          </div>
         )}
       </div>
     );
   });
-  return <div>{renderedItems}</div>;
+  return <div className="border-x border-t rounded">{renderedItems}</div>;
 };
 
 export default Accordion;
