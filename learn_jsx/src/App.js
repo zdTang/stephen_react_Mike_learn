@@ -1,28 +1,17 @@
 import ButtonPage from "./pages/ButtonPage";
-import Accordion from "./components/Accordion";
+import AccordionPage from "./pages/AccordionPage";
+import Dropdown from "./components/Dropdown";
 const App = () => {
-  const items = [
-    {
-      id: "sdsdd",
-      label: "how to do it?",
-      content: "hello, you all!",
-    },
-    {
-      id: "wewsfe",
-      label: "how to do it?",
-      content: "hello, you people!",
-    },
-    {
-      id: "evxne",
-      label: "how to do it?",
-      content: "hello, you dumb!",
-    },
+  const options = [
+    { lable: "Red", value: "red" },
+    { lable: "blue", value: "blue" },
+    { lable: "green", value: "green" },
   ];
-
   return (
     <div>
       <ButtonPage />
-      <Accordion items={items} />
+      <AccordionPage />
+      <Dropdown options={options} />
     </div>
   );
 };
