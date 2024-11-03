@@ -22,9 +22,7 @@ function Dropdown({ options, selection, onSelect }) {
 
   return (
     <div>
-      <div onClick={toggleDropDownOpen}>
-        {selection == null ? "Select..." : selection.label}
-      </div>
+      <div onClick={toggleDropDownOpen}>{selection?.label || "Select..."}</div>
       {isOpen && <div>{renderedOptions}</div>}
     </div>
   );
