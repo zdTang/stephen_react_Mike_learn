@@ -3,9 +3,9 @@ import AccordionPage from "./pages/AccordionPage";
 import Dropdown from "./components/Dropdown";
 const App = () => {
   const options = [
-    { lable: "Red", value: "red" },
-    { lable: "blue", value: "blue" },
-    { lable: "green", value: "green" },
+    { label: "Red", value: "red" },
+    { label: "blue", value: "blue" },
+    { label: "green", value: "green" },
   ];
   return (
     <div>
