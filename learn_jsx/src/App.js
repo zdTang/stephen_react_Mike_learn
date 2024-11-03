@@ -14,11 +14,7 @@ const App = () => {
     <div>
       <ButtonPage />
       <AccordionPage />
-      <Dropdown
-        options={options}
-        selection={selected}
-        onSelect={handleSelect}
-      />
+      <Dropdown options={options} value={selected} onChange={handleSelect} />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-function Dropdown({ options, selection, onSelect }) {
+function Dropdown({ options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropDownOpen = () => {
     setIsOpen((currentStatus) => {
@@ -9,7 +9,7 @@ function Dropdown({ options, selection, onSelect }) {
 
   const handleOptionClick = (option) => {
     setIsOpen(false);
-    onSelect(option);
+    onChange(option);
     console.log(option);
   };
   const renderedOptions = options.map((option) => {
@@ -22,7 +22,7 @@ function Dropdown({ options, selection, onSelect }) {
 
   return (
     <div>
-      <div onClick={toggleDropDownOpen}>{selection?.label || "Select..."}</div>
+      <div onClick={toggleDropDownOpen}>{value?.label || "Select..."}</div>
       {isOpen && <div>{renderedOptions}</div>}
     </div>
   );
