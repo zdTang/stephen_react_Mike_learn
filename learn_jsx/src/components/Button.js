@@ -12,7 +12,7 @@ function Button({
   rounded,
   ...rest
 }) {
-  console.log(rest);
+  //console.log(rest);
   const classes = className(
     rest.className,
     "flex items-center px-3 py-1.5 border",
@@ -31,7 +31,7 @@ function Button({
       "text-red": outline && danger,
     }
   );
-  console.log(classes);
+  //console.log(classes);
   return (
     <button {...rest} className={classes}>
       {children}
