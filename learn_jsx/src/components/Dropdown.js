@@ -3,16 +3,20 @@ import { GoChevronDown } from "react-icons/go";
 import Panel from "./Panel";
 function Dropdown({ options, value, onChange }) {
   const divEl = useRef();
-
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
-    const handler = (event) => console.log(divEl.current);
+    const handler = (event) => {
+      if (!divEl.current) return;
+      if (!divEl.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
     document.addEventListener("click", handler, true);
     return () => {
       document.removeEventListener("click", handler);
     };
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
   const toggleDropDownOpen = () => {
     setIsOpen((currentStatus) => {
       return !currentStatus;

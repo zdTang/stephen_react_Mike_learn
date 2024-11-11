@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import className from "classnames";
 import { FaBeer } from "react-icons/fa";
 function Button({
