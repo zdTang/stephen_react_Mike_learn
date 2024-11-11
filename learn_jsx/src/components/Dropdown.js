@@ -5,6 +5,9 @@ function Dropdown({ options, value, onChange }) {
   useEffect(() => {
     const handler = (event) => console.log(event.target);
     document.addEventListener("click", handler, true);
+    return () => {
+      document.removeEventListener("click", handler);
+    };
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
