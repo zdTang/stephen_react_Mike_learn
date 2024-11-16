@@ -4,7 +4,7 @@ const ButtonPage = () => {
     console.log("click");
   };
   return (
-    <div className="flex justify-center ">
+    <div className="flex ">
       <div>
         <Button primary className="mb-5 mx-2" onClick={handleClick}>
           Hello
