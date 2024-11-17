@@ -1,4 +1,8 @@
-const Table = ({ data }) => {
+const Table = ({ data, config }) => {
+  const renderedHeaders = config.map((column) => {
+    return <th key={column.label}>{column.label}</th>;
+  });
+
   const renderedRows = data.map((fruit) => (
     <tr className="border-b" key={fruit.name}>
       <td className="p-3">{fruit.name}</td>
@@ -11,11 +15,7 @@ const Table = ({ data }) => {
   return (
     <table className="table-auto border-spacing-2">
       <thead>
-        <tr className="border-b-2">
-          <th>Name</th>
-          <th>Color</th>
-          <th>Score</th>
-        </tr>
+        <tr className="border-b-2">{renderedHeaders}</tr>
       </thead>
       <tbody>{renderedRows}</tbody>
     </table>
