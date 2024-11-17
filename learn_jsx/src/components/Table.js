@@ -3,15 +3,17 @@ const Table = ({ data, config }) => {
     return <th key={column.label}>{column.label}</th>;
   });
 
-  const renderedRows = data.map((fruit) => (
-    <tr className="border-b" key={fruit.name}>
-      <td className="p-3">{config[0].render(fruit)}</td>
-      <td className="p-3">
-        <div className={config[1].render(fruit)}></div>
-      </td>
-      <td className="p-3">{config[2].render(fruit)}</td>
-    </tr>
-  ));
+  const renderedRows = data.map((fruit) => {
+    //Render one row
+    const renderedCells = config.map((column) => {
+      return <td key={column.label}>{column.render(fruit)}</td>;
+    });
+    return (
+      <tr className="border-b-2" key={fruit.name}>
+        {renderedCells}
+      </tr>
+    );
+  });
   return (
     <table className="table-auto border-spacing-2">
       <thead>
