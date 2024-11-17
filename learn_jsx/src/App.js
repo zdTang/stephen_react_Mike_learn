@@ -4,6 +4,7 @@ import DropdownPage from "./pages/DropdownPage";
 import Route from "./components/Route";
 import Sidebar from "./components/Sidebar";
 import ModalPage from "./pages/ModalPage";
+import TablePage from "./pages/TablePage";
 const App = () => {
   return (
     <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
@@ -20,6 +21,9 @@ const App = () => {
         </Route>
         <Route path="/modal">
           <ModalPage />
+        </Route>
+        <Route path="/table">
+          <TablePage />
         </Route>
       </div>
     </div>
