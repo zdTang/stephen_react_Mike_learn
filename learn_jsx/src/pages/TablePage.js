@@ -15,10 +15,14 @@ const TablePage = () => {
     },
     { label: "Score", render: (fruit) => fruit.score },
   ];
+  // The customized function user specified to create a unique key for table
+  const keyFn = (fruit) => {
+    return fruit.name;
+  };
 
   return (
     <div>
-      <Table data={data} config={config} />
+      <Table data={data} config={config} keyFunction={keyFn} />
     </div>
   );
 };

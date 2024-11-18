@@ -1,15 +1,15 @@
-const Table = ({ data, config }) => {
+const Table = ({ data, config, keyFunction }) => {
   const renderedHeaders = config.map((column) => {
     return <th key={column.label}>{column.label}</th>;
   });
 
-  const renderedRows = data.map((fruit) => {
+  const renderedRows = data.map((rowData) => {
     //Render one row
     const renderedCells = config.map((column) => {
-      return <td key={column.label}>{column.render(fruit)}</td>;
+      return <td key={column.label}>{column.render(rowData)}</td>;
     });
     return (
-      <tr className="border-b-2" key={fruit.name}>
+      <tr className="border-b" key={keyFunction(rowData)}>
         {renderedCells}
       </tr>
     );
