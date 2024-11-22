@@ -18,6 +18,7 @@ const Table = ({ data, config, keyFunction }) => {
       </tr>
     );
   });
+
   return (
     <table className="table-auto border-spacing-2">
       <thead>
