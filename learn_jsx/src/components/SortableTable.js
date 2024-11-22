@@ -7,6 +7,12 @@ const SortableTable = (props) => {
 
   const { config, data } = props;
   const handleClick = (label) => {
+    if (sortBy && label !== sortBy) {
+      setSortBy("asc");
+      setSortBy(label);
+      return;
+    }
+
     if (sortOrder === null) {
       setSortOrder("asc");
       setSortBy(label);
@@ -74,13 +80,13 @@ const SortableTable = (props) => {
     } else if (sortOrder === "asc") {
       return (
         <div>
-          <GoChevronDown />
+          <GoChevronUp />
         </div>
       );
     } else if (sortOrder === "desc") {
       return (
         <div>
-          <GoChevronUp />
+          <GoChevronDown />
         </div>
       );
     }
