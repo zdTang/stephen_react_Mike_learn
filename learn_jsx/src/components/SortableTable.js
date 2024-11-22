@@ -14,7 +14,7 @@ const SortableTable = (props) => {
       setSortOrder("desc");
       setSortBy(label);
     } else if (sortOrder === "desc") {
-      setSortOrder("null");
+      setSortOrder(null);
       setSortBy(null);
     }
   };
