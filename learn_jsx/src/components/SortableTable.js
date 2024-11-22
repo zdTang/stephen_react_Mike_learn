@@ -23,7 +23,8 @@ const SortableTable = (props) => {
       ...column,
       header: () => (
         <th onClick={() => handleClick(column.label)}>
-          {column.label}IS SORTABLE
+          {getIcons(column.label, sortBy, sortOrder)}
+          {column.label}
         </th>
       ),
     };
@@ -45,6 +46,20 @@ const SortableTable = (props) => {
         return (valueA - valueB) * reverseOrder;
       }
     });
+  }
+
+  function getIcons(label, sortBy, sortOrder) {
+    if (label !== sortBy) {
+      return "Show both icons";
+    }
+
+    if (sortOrder === null) {
+      return "show both icons";
+    } else if (sortOrder === "asc") {
+      return "show up icon";
+    } else if (sortOrder === "desc") {
+      return "show down icon";
+    }
   }
   return <Table {...props} data={sortedData} config={updatedConfig} />;
 };
