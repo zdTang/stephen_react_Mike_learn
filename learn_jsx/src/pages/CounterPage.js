@@ -4,12 +4,24 @@ import { useState } from "react";
 
 const CounterPage = ({ initialCount }) => {
   const [count, setCount] = useState(initialCount);
+  const [valueToAdd, setValueToAdd] = useState(initialCount);
   const increment = () => {
     setCount(count + 1);
   };
   const decrement = () => {
     setCount(count - 1);
   };
+  const handleChange = (event) => {
+    const value = parseInt(event.target.value) || 0; // if the result of parseInt is false, return 0
+    setValueToAdd(value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setCount(count + valueToAdd);
+    setValueToAdd(0);
+  };
+
   return (
     <Panel className="m-3">
       <h1 className="text-lg">Count is {count}</h1>
@@ -33,10 +45,12 @@ const CounterPage = ({ initialCount }) => {
           Decrement
         </Button>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Add a lot!</label>
         <input
           type="number"
+          value={valueToAdd || ""}
+          onChange={handleChange}
           className="p-1 m-3 bg-gray-50 border border-gray-3"
         />
         <Button>Add it!</Button>
