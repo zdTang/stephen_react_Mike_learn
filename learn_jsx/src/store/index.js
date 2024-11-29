@@ -17,15 +17,17 @@ const store = configureStore({
   },
 });
 
-const startingState = store.getState();
-console.log(store);
-console.log(startingState);
-console.log(JSON.stringify(startingState));
+export { store };
 
-store.dispatch({
-  type: "song/addSong",
-  payload: "New Song!!!",
-});
+// const startingState = store.getState();
+// console.log(store);
+// console.log(startingState);
+// console.log(JSON.stringify(startingState));
 
-const finalState = store.getState();
-console.log(JSON.stringify(finalState));
+// store.dispatch({
+//   type: "song/addSong",
+//   payload: "New Song!!!",
+// });
+
+// const finalState = store.getState();
+// console.log(JSON.stringify(finalState));
