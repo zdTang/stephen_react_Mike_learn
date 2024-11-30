@@ -1,63 +1,17 @@
-import { configureStore, createSlice, createAction } from "@reduxjs/toolkit";
-
-export const reset = createAction("app/reset");
-
-const songsSlice = createSlice({
-  name: "song",
-  initialState: [],
-  reducers: {
-    addSong(state, action) {
-      state.push(action.payload);
-    },
-    removeSong(state, action) {
-      const index = state.indexOf(action.payload);
-      state.splice(index, 1);
-    },
-  },
-  extraReducers(builder) {
-    // // Will be executed automatically!
-    // //builder.addCase("movie/resetMovie", (state, action) => []);
-    // builder.addCase(
-    //   //moviesSlice.actions.resetMovie.toString(),
-    //   moviesSlice.actions.resetMovie,
-    //   (state, action) => []
-    // );
-    builder.addCase(reset, (state, action) => []);
-  },
-});
-
-const moviesSlice = createSlice({
-  name: "movie",
-  initialState: [],
-  reducers: {
-    addMovie(state, action) {
-      state.push(action.payload);
-    },
-    removeMovie(state, action) {
-      const index = state.indexOf(action.payload);
-      state.splice(index, 1);
-    },
-    // resetMovie(state, action) {
-    //   //React also implay the immar library for user, so that we can change the state directly
-    //   //state=[] will not work, this is re-assigning thte state, not changing the state
-    //   return [];
-    // },
-  },
-  extraReducers(builder) {
-    builder.addCase(reset, (state, action) => []);
-  },
-});
+import { configureStore } from "@reduxjs/toolkit";
+import { moviesReducer, addMovie, removeMovie } from "./slices/moviesSlice";
+import { songsReducer, addSong, removeSong } from "./slices/songsSlice";
+import { reset } from "./action";
 
 const store = configureStore({
   reducer: {
-    songs: songsSlice.reducer,
-    movies: moviesSlice.reducer,
+    songs: songsReducer,
+    movies: moviesReducer,
   },
 });
 
 export { store };
-export const { addSong, removeSong } = songsSlice.actions; // these are action creater
-export const { addMovie, removeMovie } = moviesSlice.actions; // these are action creater
+export { reset, addMovie, addSong, removeMovie, removeSong };
 
 const startingState = store.getState();
 // console.log(store);
