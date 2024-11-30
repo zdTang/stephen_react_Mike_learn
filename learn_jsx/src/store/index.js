@@ -14,7 +14,12 @@ const songsSlice = createSlice({
   },
   extraReducers(builder) {
     // Will be executed automatically!
-    builder.addCase("movie/resetMovie", (state, action) => []);
+    //builder.addCase("movie/resetMovie", (state, action) => []);
+    builder.addCase(
+      //moviesSlice.actions.resetMovie.toString(),
+      moviesSlice.actions.resetMovie,
+      (state, action) => []
+    );
   },
 });
 
