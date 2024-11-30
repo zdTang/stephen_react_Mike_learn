@@ -18,6 +18,7 @@ const store = configureStore({
 });
 
 export { store };
+export const { addSong } = songsSlice.actions;
 
 // const startingState = store.getState();
 // console.log(store);
