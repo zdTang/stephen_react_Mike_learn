@@ -11,7 +11,7 @@ const songsSlice = createSlice({
       const index = state.indexOf(action.payload);
       state.splice(index, 1);
     },
-    reset(state, action) {
+    resetSong(state, action) {
       //React also implay the immar library for user, so that we can change the state directly
       //state=[] will not work, this is re-assigning thte state, not changing the state
       return [];
@@ -30,6 +30,11 @@ const moviesSlice = createSlice({
       const index = state.indexOf(action.payload);
       state.splice(index, 1);
     },
+    resetMovie(state, action) {
+      //React also implay the immar library for user, so that we can change the state directly
+      //state=[] will not work, this is re-assigning thte state, not changing the state
+      return [];
+    },
   },
 });
 
@@ -41,8 +46,8 @@ const store = configureStore({
 });
 
 export { store };
-export const { addSong, removeSong, reset } = songsSlice.actions; // these are action creater
-export const { addMovie, removeMovie } = moviesSlice.actions; // these are action creater
+export const { addSong, removeSong, resetSong } = songsSlice.actions; // these are action creater
+export const { addMovie, removeMovie, resetMovie } = moviesSlice.actions; // these are action creater
 
 const startingState = store.getState();
 // console.log(store);
