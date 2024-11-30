@@ -1,4 +1,6 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice, createAction } from "@reduxjs/toolkit";
+
+export const reset = createAction("app/reset");
 
 const songsSlice = createSlice({
   name: "song",
@@ -13,13 +15,14 @@ const songsSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    // Will be executed automatically!
-    //builder.addCase("movie/resetMovie", (state, action) => []);
-    builder.addCase(
-      //moviesSlice.actions.resetMovie.toString(),
-      moviesSlice.actions.resetMovie,
-      (state, action) => []
-    );
+    // // Will be executed automatically!
+    // //builder.addCase("movie/resetMovie", (state, action) => []);
+    // builder.addCase(
+    //   //moviesSlice.actions.resetMovie.toString(),
+    //   moviesSlice.actions.resetMovie,
+    //   (state, action) => []
+    // );
+    builder.addCase(reset, (state, action) => []);
   },
 });
 
@@ -34,11 +37,14 @@ const moviesSlice = createSlice({
       const index = state.indexOf(action.payload);
       state.splice(index, 1);
     },
-    resetMovie(state, action) {
-      //React also implay the immar library for user, so that we can change the state directly
-      //state=[] will not work, this is re-assigning thte state, not changing the state
-      return [];
-    },
+    // resetMovie(state, action) {
+    //   //React also implay the immar library for user, so that we can change the state directly
+    //   //state=[] will not work, this is re-assigning thte state, not changing the state
+    //   return [];
+    // },
+  },
+  extraReducers(builder) {
+    builder.addCase(reset, (state, action) => []);
   },
 });
 
@@ -51,7 +57,7 @@ const store = configureStore({
 
 export { store };
 export const { addSong, removeSong } = songsSlice.actions; // these are action creater
-export const { addMovie, removeMovie, resetMovie } = moviesSlice.actions; // these are action creater
+export const { addMovie, removeMovie } = moviesSlice.actions; // these are action creater
 
 const startingState = store.getState();
 // console.log(store);
