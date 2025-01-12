@@ -2,8 +2,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeCar } from "../store";
 // Retrieve data from Redux with useSelector
 const CarList = () => {
-  const cars = useSelector((state) => {
-    return state.cars.data;
+  const cars = useSelector(({ cars: { data, searchTerm } }) => {
+    return data.filter((car) =>
+      car.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   });
 
   // Write data to Redux with useDispatch
