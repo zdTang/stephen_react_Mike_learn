@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsers } from "../store/thunks/fetchUsers";
+import { fetchUsers } from "../thunks/fetchUsers";
 //Detailed slice information, see this URL: https://redux-toolkit.js.org/api/createSlice
 const usersSlice = createSlice({
   name: "users",

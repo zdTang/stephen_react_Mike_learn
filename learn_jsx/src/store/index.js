@@ -7,4 +7,7 @@ const store = configureStore({
   },
 });
 
+const currentState = store.getState();
+console.log("From store to monitor Current state:", currentState); // Print the full Redux state
 export default store;
+export * from "./thunks/fetchUsers";
