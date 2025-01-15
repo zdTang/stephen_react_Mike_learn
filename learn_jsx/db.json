@@ -9,7 +9,7 @@
       "id": "0f1b"
     }
   ],
-  "users": [],
+  "users": [{ "id": 1, "name": "Myra" }],
   "albums": [],
   "photo": []
 }
