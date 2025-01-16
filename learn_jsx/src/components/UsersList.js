@@ -22,7 +22,7 @@ export default function UsersList() {
   }, [disPatch]);
 
   if (isLoading) {
-    return <Skeleton />;
+    return <Skeleton times={6} className="h-10 w-full" />;
   }
   if (error) {
     return <div>Error Fetching</div>;
