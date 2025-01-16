@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../store";
 import store from "../store"; // Import your Redux store instance
+import Skeleton from "./Skeleton";
+
 export default function UsersList() {
   const disPatch = useDispatch();
   const { isLoading, data, error } = useSelector((state) => {
@@ -20,7 +22,7 @@ export default function UsersList() {
   }, [disPatch]);
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return <Skeleton />;
   }
   if (error) {
     return <div>Error Fetching</div>;
