@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, addUser } from "../store";
 import store from "../store"; // Import your Redux store instance
@@ -6,13 +6,23 @@ import Skeleton from "./Skeleton";
 import Button from "./Button";
 
 export default function UsersList() {
+  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
+  const [loadingUsersError, setLoadingUsersError] = useState(null);
   const disPatch = useDispatch();
-  const { isLoading, data, error } = useSelector((state) => {
+  const { data } = useSelector((state) => {
     console.log("In useSelector, State changed:", state.users);
     return state.users;
   });
   useEffect(() => {
-    disPatch(fetchUsers());
+    setIsLoadingUsers(true);
+    disPatch(fetchUsers()) //this is a Promise
+      .unwrap() // After testing, I found this unwrap can be delete?
+      .then(() => {
+        console.log("Success!");
+      })
+      .catch(() => {
+        console.log("Fail!");
+      });
     //monitor state in the store
     store.subscribe(() => {
       console.log("in Subscribe, State changed:", store.getState());
@@ -26,10 +36,10 @@ export default function UsersList() {
     disPatch(addUser()); // Dispatch a Thunk directly,no need use useEffect()
   };
 
-  if (isLoading) {
+  if (isLoadingUsers) {
     return <Skeleton times={6} className="h-10 w-full" />;
   }
-  if (error) {
+  if (loadingUsersError) {
     return <div>Error Fetching</div>;
   }
 
