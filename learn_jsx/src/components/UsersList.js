@@ -17,17 +17,10 @@ export default function UsersList() {
     setIsLoadingUsers(true);
     disPatch(fetchUsers()) //this is a Promise
       .unwrap() // After testing, I found this unwrap can be delete?
-      .then(() => {
-        console.log("Success!");
-        setIsLoadingUsers(false);
-      })
       .catch((err) => {
-        console.log("Fail!");
         setLoadingUsersError(err);
-        setIsLoadingUsers(false);
       })
       .finally(() => {
-        console.log("Finally!");
         setIsLoadingUsers(false);
       });
     //monitor state in the store
