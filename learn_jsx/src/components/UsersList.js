@@ -8,6 +8,8 @@ import Button from "./Button";
 export default function UsersList() {
   const [isLoadingUsers, setIsLoadingUsers] = useState(false);
   const [loadingUsersError, setLoadingUsersError] = useState(null);
+  const [isCreatingUser, setIsCreatingUser] = useState(false);
+  const [creatingUserError, setCreatingUserError] = useState(null);
   const disPatch = useDispatch();
   const { data } = useSelector((state) => {
     console.log("In useSelector, State changed:", state.users);
@@ -33,7 +35,13 @@ export default function UsersList() {
   }, [disPatch]);
 
   const handleUserAdd = () => {
-    disPatch(addUser()); // Dispatch a Thunk directly,no need use useEffect()
+    setIsCreatingUser(true);
+    disPatch(addUser()) // Dispatch a Thunk directly,no need use useEffect()
+      .unwrap()
+      .catch((err) => setCreatingUserError(err))
+      .finally(() => {
+        setIsCreatingUser(false);
+      });
   };
 
   if (isLoadingUsers) {
@@ -57,7 +65,12 @@ export default function UsersList() {
     <div>
       <div className="flex flex-row justify-between m-3">
         <h1 className="m-2 text-xl">Users</h1>
-        <Button onClick={handleUserAdd}>+ Add User</Button>
+        {isCreatingUser ? (
+          "Creating User..."
+        ) : (
+          <Button onClick={handleUserAdd}>+ Add User</Button>
+        )}
+        {creatingUserError && "Error Creating User..."}
       </div>
       {renderedUsers}
     </div>
