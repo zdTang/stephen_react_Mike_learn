@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "../thunks/fetchUsers";
+import { addUser } from "../thunks/addUser";
 //Detailed slice information, see this URL: https://redux-toolkit.js.org/api/createSlice
 const usersSlice = createSlice({
   name: "users",
@@ -28,6 +29,18 @@ const usersSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message;
       });
+
+    builder.addCase(addUser.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(addUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.data.push(action.payload); //In-memory store ??
+    });
+    builder.addCase(addUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error;
+    });
   },
 });
 

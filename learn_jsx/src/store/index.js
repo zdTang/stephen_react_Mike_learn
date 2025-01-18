@@ -10,4 +10,7 @@ const store = configureStore({
 const currentState = store.getState();
 console.log("From store to monitor Current state:", currentState); // Print the full Redux state
 export default store;
+
+// Even through the following thunks are not imported here, we still can export from here.
 export * from "./thunks/fetchUsers";
+export * from "./thunks/addUser";

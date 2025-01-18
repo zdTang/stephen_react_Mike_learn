@@ -9,7 +9,24 @@
       "id": "0f1b"
     }
   ],
-  "users": [{ "id": 1, "name": "Myra" }],
+  "users": [
+    {
+      "id": "1",
+      "name": "Myra"
+    },
+    {
+      "id": "3094",
+      "name": "Gary Beer"
+    },
+    {
+      "id": "3bc2",
+      "name": "Doyle Smitham"
+    },
+    {
+      "id": "fcd1",
+      "name": "Dale Heidenreich-Reynolds"
+    }
+  ],
   "albums": [],
   "photo": []
 }
