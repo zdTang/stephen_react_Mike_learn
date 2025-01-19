@@ -1,28 +1,12 @@
-import { useEffect, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { fetchUsers, addUser } from "../store";
-import store from "../store"; // Import your Redux store instance
 import Skeleton from "./Skeleton";
 import Button from "./Button";
+import useThunk from "../hooks/use-thunk";
 
 export default function UsersList() {
   // Notice the export name, and understand the common logic for each Thunk
-  function useThunk(thunk) {
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const dispatch = useDispatch();
-    const runThunk = useCallback(
-      (arg) => {
-        setIsLoading(true);
-        dispatch(thunk(arg))
-          .unwrap()
-          .catch((err) => setError(err))
-          .finally(() => setIsLoading(false));
-      },
-      [dispatch, thunk]
-    );
-    return [runThunk, isLoading, error];
-  }
 
   const [doFetchUsers, isLoadingUsers, loadingUsersError] =
     useThunk(fetchUsers);
