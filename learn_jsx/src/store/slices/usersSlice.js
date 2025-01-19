@@ -51,7 +51,8 @@ const usersSlice = createSlice({
       .addCase(removeUser.fulfilled, (state, action) => {
         state.isLoading = false;
         // Here need to aware the Id of the delted user, while our removeUser Thunk might not pass this id to Response !
-        console.log(action);
+        // Be aware, the data here is the in-memory Sync of the user table in the JSON server
+        state.data = state.data.filter((user) => user.id !== action.payload.id);
       })
       .addCase(removeUser.rejected, (state, action) => {
         state.isLoading = false;
