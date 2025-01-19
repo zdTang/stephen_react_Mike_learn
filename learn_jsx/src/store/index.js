@@ -14,3 +14,4 @@ export default store;
 // Even through the following thunks are not imported here, we still can export from here.
 export * from "./thunks/fetchUsers";
 export * from "./thunks/addUser";
+export * from "./thunks/removeUser";
