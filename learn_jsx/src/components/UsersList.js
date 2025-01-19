@@ -6,6 +6,7 @@ import Skeleton from "./Skeleton";
 import Button from "./Button";
 
 export default function UsersList() {
+  // Notice the export name, and understand the common logic for each Thunk
   function useThunk(thunk) {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -23,15 +24,10 @@ export default function UsersList() {
     return [runThunk, isLoading, error];
   }
 
-  /*   const [isLoadingUsers, setIsLoadingUsers] = useState(false);
-  const [loadingUsersError, setLoadingUsersError] = useState(null); */
-
   const [doFetchUsers, isLoadingUsers, loadingUsersError] =
     useThunk(fetchUsers);
+  const [doCreatUser, isCreatingUser, creatingUserError] = useThunk(addUser);
 
-  const [isCreatingUser, setIsCreatingUser] = useState(false);
-  const [creatingUserError, setCreatingUserError] = useState(null);
-  const disPatch = useDispatch();
   const { data } = useSelector((state) => {
     console.log("In useSelector, State changed:", state.users);
     return state.users;
@@ -41,13 +37,7 @@ export default function UsersList() {
   }, []);
 
   const handleUserAdd = () => {
-    setIsCreatingUser(true);
-    disPatch(addUser()) // Dispatch a Thunk directly,no need use useEffect()
-      .unwrap()
-      .catch((err) => setCreatingUserError(err))
-      .finally(() => {
-        setIsCreatingUser(false);
-      });
+    doCreatUser();
   };
 
   if (isLoadingUsers) {
