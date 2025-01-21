@@ -37,21 +37,6 @@
   ],
   "albums": [
     {
-      "id": "1",
-      "title": "quidem molestiae enim",
-      "userId": 1
-    },
-    {
-      "id": "cd38",
-      "userId": "1",
-      "title": "Sleek Granite Computer"
-    },
-    {
-      "id": "5af0",
-      "userId": "1",
-      "title": "Modern Concrete Tuna"
-    },
-    {
       "id": "ba3b",
       "userId": "c24e",
       "title": "Sleek Cotton Shoes"
