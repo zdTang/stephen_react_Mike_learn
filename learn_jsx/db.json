@@ -31,6 +31,12 @@
       "name": "Janet Batz-Franey"
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": "1",
+      "title": "quidem molestiae enim",
+      "userId": 1
+    }
+  ],
   "photo": []
 }

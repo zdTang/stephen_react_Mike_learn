@@ -1,5 +1,5 @@
-import { createApi } from "@reduxjs.toolkit/query/react";
-import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 
 const albumsApi = createApi({
   reducerPath: "albums",
@@ -23,3 +23,5 @@ const albumsApi = createApi({
   },
 });
 //albumsApi.useFetchAlbumsQuery();
+export const { useFetchAlbumsQuery } = albumsApi;
+export { albumsApi };
