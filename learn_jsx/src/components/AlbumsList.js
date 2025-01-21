@@ -7,7 +7,8 @@ const AlbumsList = ({ user }) => {
   console.log("albumslist component render!!");
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
   console.log(data, error, isLoading);
-  const [addAlbum, results] = useAddAlbumMutation();
+  const [addAlbum, results] = useAddAlbumMutation(); // the 'results' has lots of states such as isLoading...
+  console.log(results);
 
   const handleAddAlbum = () => {
     addAlbum(user);
@@ -29,9 +30,11 @@ const AlbumsList = ({ user }) => {
   }
   return (
     <div>
-      <div>
-        Album for {user.name}
-        <Button onClick={handleAddAlbum}>+ Add Album</Button>
+      <div className="m-2 flex flex-row items-center justify-between">
+        <h3 className="text-lg font-bond">Album for {user.name}</h3>
+        <Button loading={results.loading} onClick={handleAddAlbum}>
+          + Add Album
+        </Button>
       </div>
       <div>{content}</div>
     </div>
