@@ -26,9 +26,10 @@ const albumsApi = createApi({
             method: "DELETE",
           };
         },
-        invalidatesTags: (result, error, album) => [
-          { type: "Album", id: album.id },
-        ],
+        invalidatesTags: (result, error, album) => {
+          console.log(album);
+          return [{ type: "Album", id: album.userId }];
+        },
       }),
       addAlbum: builder.mutation({
         //invalidatesTags: ["Album"],
