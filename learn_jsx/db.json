@@ -25,14 +25,6 @@
     {
       "id": "c24e",
       "name": "Grant Watsica"
-    },
-    {
-      "id": "a0d2",
-      "name": "Janet Batz-Franey"
-    },
-    {
-      "id": "f345",
-      "name": "Omar Hauck"
     }
   ],
   "albums": [
@@ -45,6 +37,41 @@
       "id": "0fe0",
       "userId": "1",
       "title": "Practical Bronze Shirt"
+    },
+    {
+      "id": "6d28",
+      "userId": "a825",
+      "title": "Luxurious Granite Pants"
+    },
+    {
+      "id": "af9a",
+      "userId": null,
+      "title": "Incredible Cotton Salad"
+    },
+    {
+      "id": "06aa",
+      "userId": null,
+      "title": "Recycled Concrete Soap"
+    },
+    {
+      "id": "7426",
+      "userId": null,
+      "title": "Licensed Rubber Towels"
+    },
+    {
+      "id": "b632",
+      "userId": "c24e",
+      "title": "Elegant Soft Car"
+    },
+    {
+      "id": "2547",
+      "userId": null,
+      "title": "Modern Fresh Car"
+    },
+    {
+      "id": "714d",
+      "userId": null,
+      "title": "Fantastic Wooden Salad"
     }
   ],
   "photo": []

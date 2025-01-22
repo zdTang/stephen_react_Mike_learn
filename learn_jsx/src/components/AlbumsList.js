@@ -1,13 +1,12 @@
 import { useFetchAlbumsQuery, useAddAlbumMutation } from "../store";
 import Skeleton from "./Skeleton";
-import ExpandablePanel from "./ExpandablePanel";
 import Button from "./Button";
 import AlbumsListItem from "./AlbumsListItem";
 
 const AlbumsList = ({ user }) => {
   console.log("albumslist component render!!");
-  const { data, error, isLoading } = useFetchAlbumsQuery(user);
-  console.log(data, error, isLoading);
+  const { data, error, isFetching } = useFetchAlbumsQuery(user);
+  console.log(data, error, isFetching);
   const [addAlbum, results] = useAddAlbumMutation(); // the 'results' has lots of states such as isLoading...
   console.log(results);
 
@@ -15,7 +14,7 @@ const AlbumsList = ({ user }) => {
     addAlbum(user);
   };
   let content;
-  if (isLoading) {
+  if (isFetching) {
     content = <Skeleton times={3} className="h-10 w-full" />;
   } else if (error) {
     content = <div>Error Fetching</div>;
