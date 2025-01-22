@@ -22,9 +22,10 @@ const photosApi = createApi({
       query: (album) => {
         return {
           url: "/photos",
-          params: {
+          body: {
             albumId: album.id,
-            url: faker.image.abstract(150, 150, true),
+            //url: faker.image.abstract(150, 150, true),
+            url: faker.image.urlPicsumPhotos({ width: 150, height: 150 }),
           },
           method: "POST",
         };

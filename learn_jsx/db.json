@@ -72,13 +72,28 @@
       "id": "714d",
       "userId": null,
       "title": "Fantastic Wooden Salad"
+    },
+    {
+      "id": "5f84",
+      "userId": "1",
+      "title": "Sleek Bronze Hat"
+    },
+    {
+      "id": "c15b",
+      "userId": "1",
+      "title": "Handcrafted Cotton Hat"
     }
   ],
   "photos": [
     {
-      "id": "714d",
-      "albumId": "0f10",
-      "url": "Fantastic Wooden Salad"
+      "id": "5b4d",
+      "albumId": "0fe0",
+      "url": "https://picsum.photos/seed/VK9ucGR8/150/150?grayscale&blur=1"
+    },
+    {
+      "id": "bb67",
+      "albumId": "0fe0",
+      "url": "https://picsum.photos/seed/avRO0/150/150?blur=6"
     }
   ]
 }
