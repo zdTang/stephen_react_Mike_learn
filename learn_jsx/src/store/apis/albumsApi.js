@@ -53,6 +53,7 @@ const albumsApi = createApi({
             return { type: "Album", id: album.userId };
           });
           tags.push({ type: "UsersAlbums", id: user.id });
+          return tags;
         },
         //providesTags: ["Album"],
         query: (user) => {
