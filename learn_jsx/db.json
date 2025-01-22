@@ -74,5 +74,11 @@
       "title": "Fantastic Wooden Salad"
     }
   ],
-  "photo": []
+  "photos": [
+    {
+      "id": "714d",
+      "albumId": "0f10",
+      "url": "Fantastic Wooden Salad"
+    }
+  ]
 }
