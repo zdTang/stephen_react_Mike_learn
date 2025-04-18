@@ -25,6 +25,14 @@
     {
       "id": "c24e",
       "name": "Grant Watsica"
+    },
+    {
+      "id": "20c9",
+      "name": "Franklin Morar"
+    },
+    {
+      "id": "758e",
+      "name": "Ms. Sadie Parisian"
     }
   ],
   "albums": [
@@ -139,6 +147,21 @@
       "id": "e83b",
       "albumId": "06aa",
       "url": "https://picsum.photos/seed/uQl3mlFSs/150/150?blur=5"
+    },
+    {
+      "id": "c340",
+      "albumId": "af9a",
+      "url": "https://picsum.photos/seed/cnyvh/150/150?grayscale"
+    },
+    {
+      "id": "e507",
+      "albumId": "af9a",
+      "url": "https://picsum.photos/seed/C0GWH/150/150?grayscale&blur=1"
+    },
+    {
+      "id": "983e",
+      "albumId": "af9a",
+      "url": "https://picsum.photos/seed/d7XUaXD25/150/150?grayscale&blur=7"
     }
   ]
 }
